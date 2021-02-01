@@ -1,0 +1,28 @@
+<html>
+{% extends 'myApp/parent.html' %}
+   <body>
+  {% block for_child %}
+     <h1 style="color:red">Employee Records</h1>
+     <table border="2">
+      <tr style="color:blue">
+         <th><h1><b><center>Number</center></b></h1></th>
+         <th><h1><b><center>Name</center></b></h1></th>
+         <th><h1><b><center>Salary</center></b></h1></th>
+         <th><h1><b><center>Address</center></b></h1></th>
+       
+       </tr>
+      {% for x in emp %}
+      <tr>
+	<td><b><center>{{x.eno}}</b></td>
+        <td><b>{{x.ename}}</b></td>
+	<td><b>{{x.esal}}</b></td>
+	<td><b>{{x.eaddr}}</b></td>
+        <td><a href="/update/{{x.id}}" class="btn btn-ld btn-warning">Update</a></td>
+      <td> <a href="/delete/{{x.id}}" class="btn btn-ld btn-danger">Delete</a></td>
+     </tr>
+     {% endfor %}
+     </table>
+   <a href="/insert" class="btn btn-lg btn-primary">Do you want to insert a new record?</a>
+    {% endblock %}
+   </body>
+</html>
